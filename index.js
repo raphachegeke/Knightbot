@@ -362,3 +362,9 @@ fs.watchFile(file, () => {
     delete require.cache[file]
     require(file)
 })
+
+//fake port
+const PORT = 10000;
+http.createServer((req, res) => res.end("WhatsApp bot running")).listen(PORT, () =>
+  console.log(`HTTP server listening on port ${PORT}`)
+);
