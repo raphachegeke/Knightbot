@@ -10,6 +10,7 @@
  * - Pair Code implementation inspired by TechGod143 & DGXEON
  */
 require('./settings')
+const http = require('http')  
 const { Boom } = require('@hapi/boom')
 const fs = require('fs')
 const chalk = require('chalk')
@@ -365,6 +366,8 @@ fs.watchFile(file, () => {
 
 
 const PORT = process.env.PORT || 10000;
-http.createServer((req, res) => res.end("WhatsApp bot running")).listen(PORT, () =>
-  console.log(`HTTP server listening on port ${PORT}`)
+const server = http.createServer((req, res) => res.end("WhatsApp bot running"))
+
+server.listen(PORT, '0.0.0.0', () =>
+  console.log(`HTTP server listening on 0.0.0.0:${PORT}`)
 );
